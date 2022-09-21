@@ -52,12 +52,23 @@ function completeTask() {
     checkbox.remove();
     // send complete Container ul there
     completeContainerUl.appendChild(liContainer)
-
+    finishTask(liContainer, deleteTask);
+}
+// Delete Task Function
+function deleteTask() {
+    const deleteLi = this.parentNode;
+    const liUl = deleteLi.parentNode;
+    liUl.removeChild(deleteLi)
 }
 // In Complete Task Function
 function incompleteTask(li, onchangeCheckBox) {
     const checkbox = li.querySelector('input[type="checkbox"]');
     checkbox.onchange = onchangeCheckBox;
+}
+// Finish Task Function
+function finishTask(li, deleteBtnClick) {
+    const deleteBtn = li.querySelector('.delete');
+    deleteBtn.onclick = deleteBtnClick;
 }
 // Submit Form
 form.addEventListener('submit', addNewTask);
