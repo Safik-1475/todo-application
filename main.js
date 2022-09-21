@@ -70,5 +70,12 @@ function finishTask(li, deleteBtnClick) {
     const deleteBtn = li.querySelector('.delete');
     deleteBtn.onclick = deleteBtnClick;
 }
+// Delete By Default Task Use For Loop
+for (let i = 0; i < itemsContainerUl.children.length; i++) {
+    incompleteTask(itemsContainerUl.children[i], completeTask);
+};
+for (let i = 0; i < completeContainerUl.children.length; i++) {
+    finishTask(completeContainerUl.children[i], deleteTask);
+};
 // Submit Form
 form.addEventListener('submit', addNewTask);
